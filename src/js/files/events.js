@@ -83,10 +83,6 @@ document.addEventListener('click', (e) => {
 
 	//========================================================================================================================================================
 
-	if (targetElement.closest('.timer__body')) {
-		// startGame();
-	}
-
 	if (targetElement.closest('[data-screen="start-bet"] .final__button')) {
 		document.querySelector('[data-screen="start-bet"]').classList.remove('_visible');
 		setTimeout(() => {

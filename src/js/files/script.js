@@ -34,27 +34,6 @@ initStartData();
 
 
 //========================================================================================================================================================
-// 1. Кликаем на кнопку Start Game:
-//	++	1.1 Показываем экран выбора команды.
-//	++	1.2 Кликаем на любую иконку сраны - записываем в конфиг playerTeam
-//	++		1.2.1 Анимируем выбор игрока (добавляем класс)
-//	++		1.2.2 Добавляем pointer-events: none для команд (запрещаем менять команду)
-//	++	1.3 Генерируем случайное число от 1 до 16. 
-//	++	1.3.1 Проверяем - не равно ли это число выбранной пользователем команде.
-//	++		1.3.1.1 Если равно - генерируем заново
-//	++		1.3.1.2 Если не равно - записываем в конфиг enemyTeam
-//	++	1.4 Анимируем выбор компьютера
-//	+2. Через 1 секунду убираем экран выбора команд.
-//	+3. Показываем экран игры.
-
-// 4. Записываем картинки команды пользователя
-//	5. Записываем картинки команды противника
-// 6. Запускаем игру:
-//		6.1 Запускаем таймер.
-//		6.2 Выбрасываем мяч в центр поля
-//		6.3 Запускаем случайные движения игроков (предусмотреть 3 разных модели)
-//		6.4 Если игрок подходит к мячу - можем ударить по воротам.
-//		6.5 Зафиксировать координаты каждых ворот. При ударе бота мяч будет лететь к центру ворот
 
 const wrapper = document.querySelector('.wrapper');
 const teams = document.querySelectorAll('.select__team');
@@ -66,7 +45,6 @@ const leftGate = document.querySelector('.game__gate_1');
 const rightGate = document.querySelector('.game__gate_2');
 
 const player1 = document.querySelector('.game__player_2');
-const player2 = document.querySelector('.game__enemy_2');
 
 export const config = {
 	timeConst: 60,
@@ -188,10 +166,8 @@ let turn = 1;
 
 const semiWidthGate = 3;
 
-const gravityZ = 0.01;
 const gravity = 0.5; // 0.5
 const bounceFactor = 0.7; // Energy lost on bounce
-const bounceFactorZ = 0.1; // Energy lost on bounce
 
 export function startGame() {
 	config.isBounceEnable = true;
@@ -209,15 +185,10 @@ export function startGame() {
 
 function animate() {
 
-	// vz -= 0.02;
 	if (config.isBounceEnable) {
 		// Apply gravity
 		vy += gravity;
 	}
-
-	// console.log('vz');
-	// console.log(vz);
-
 
 	// Move the ball vertically and horizontally
 	const rect = ball.getBoundingClientRect();
@@ -234,10 +205,6 @@ function animate() {
 	// y offset
 	let maxY = 170;
 	if (innerHeight > 700 && innerWidth > 700) maxY = 440;
-
-	// z
-	let minZ = 1;
-	const newZ = minZ + vz;
 
 	const newX = rect.left + vx;
 	const newY = rect.top + vy;
@@ -258,18 +225,6 @@ function animate() {
 			ball.style.top = newY + 'px';
 		}
 	}
-
-	// z offset
-
-	// if (newZ <= minZ) {
-	// 	// Bounce the ball vertically
-	// 	vz = -vz * bounceFactorZ;
-
-	// 	ball.style.transform = `scale(${minZ})`;
-	// } else {
-	// 	ball.style.transform = `scale(${newZ})`;
-	// }
-
 	// Horizontal offset
 	if (newX + rect.width > maxX) { // гол сопернику и останавливаем мяч
 		// Bounce the ball horizontally
@@ -315,11 +270,9 @@ function animate() {
 		const pl2Top = enemyInfo.top - 15;
 		const pl2Bottom = enemyInfo.top + enemyInfo.height;
 		const pl2Left = enemyInfo.left;
-		// const pl2right = enemyCoord.left + enemyInfo.width;
 
 		if (pl2Top < ballBottom && pl2Bottom > ballTop) { // проверяем что мяч находится по высоте на уровне игрока
 			if (ballRight >= pl2Left && ballRight < pl2Left + 10 && !config.isTargetPl2) {
-				// console.log(' Мяч попал в противника');
 				config.isTargetPl2 = true;
 				vx = 0;
 				vz = 0;
@@ -340,7 +293,6 @@ function animate() {
 
 		if (pl1Top < ballBottom && pl1Bottom > ballTop) { // проверяем что мяч находится по высоте на уровне игрока
 			if (ballLeft >= pl1Right && ballLeft < pl1Right + 7 && !config.isTargetPl1) {
-				console.log(' Мяч попал в игрока');
 				config.isTargetPl1 = true;
 				vx = 0;
 				vz = 0;
@@ -409,18 +361,10 @@ export function cickBall(turn) {
 
 	if (turn === 'right') {
 		vx = getRandom(config.vxMin, config.vxMax);
-		// vx = 15;
 	} else if (turn === 'left') {
 		vx = getRandom(-config.vxMax, -config.vxMin);
-		// vx = -15;
 	}
-	// vy = getRandom(0, -6);
 
-	// console.log(vx);
-	// const num = getRandom(1, 50) / 100;
-	// // console.log(vz);
-	// vz = num;
-	// vz = 0.02;
 
 	setTimeout(() => {
 		config.isTargetPl2 = false;
@@ -450,7 +394,7 @@ function restartStartPositionBall(ball, pos = 3) {
 	ball.style.top = '20%';
 	config.isBallNear = false;
 	if (pos === 1) ball.style.left = '35%';
-	else if (pos === 2) ball.style.left = '65%';
+	else if (pos === 2) ball.style.left = '60%';
 	else ball.style.left = '50%';
 
 	setTimeout(() => {
@@ -458,20 +402,6 @@ function restartStartPositionBall(ball, pos = 3) {
 	}, 1500);
 }
 
-export function drawCurrentColors() {
-	if (config.currentPlayer == 1) {
-		document.querySelector('.game__player_1').style.backgroundColor = config.color1;
-		document.querySelector('.game__player_2').style.backgroundColor = config.color2;
-		document.querySelector('[data-score="1"]').style.color = config.color1;
-		document.querySelector('[data-score="2"]').style.color = config.color2;
-
-	} else if (config.currentPlayer == 2) {
-		document.querySelector('.game__player_1').style.backgroundColor = config.color2;
-		document.querySelector('.game__player_2').style.backgroundColor = config.color1;
-		document.querySelector('[data-score="1"]').style.color = config.color2;
-		document.querySelector('[data-score="2"]').style.color = config.color1;
-	}
-}
 
 //========================================================================================================================================================
 
