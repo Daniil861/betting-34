@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Betting-34"
+})
+
+<body>
+	@@include('html/_preloader.htm',{})
+	<div class="wrapper">
+		<div class="wrapper__body">
+			<div class="wrapper__main main">
+				<div class="main__body">
+					<div class="main__buttons">
+						<div class="main__score-box score-box">
+							<div class="score-box__body">
+								<div class="score-box__icon"></div>
+								<div class="score-box__score score">0</div>
+							</div>
+						</div>
+						<div class="main__button-box">
+							<button type="button" data-button="game" class="main__button button"><span>START
+									GAME</span></button>
+							<button type="button" data-button="slot" class="main__button button"><span>SLOT</span></button>
+							<button type="button" data-button="privacy" class="main__button button"><span>PRIVACY
+									POLICY</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrapper__select select">
+				<div class="select__body">
+					<div class="select__header header-main">
+						<div class="header-main__body">
+							<button type="button" data-button="select-home" class="header-main__button-home"></button>
+							<div class="header-main__score-box score-box">
+								<div class="score-box__body">
+									<div class="score-box__icon icon-game icon-anim"></div>
+									<div class="score-box__score score">0</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="select__teams-box">
+						<div class="select__teams">
+							<div data-team="1" class="select__team">
+								<img src="@img/teams/team-1.svg" alt="Image">
+							</div>
+							<div data-team="2" class="select__team">
+								<img src="@img/teams/team-2.svg" alt="Image">
+							</div>
+							<div data-team="3" class="select__team">
+								<img src="@img/teams/team-3.svg" alt="Image">
+							</div>
+							<div data-team="4" class="select__team">
+								<img src="@img/teams/team-4.svg" alt="Image">
+							</div>
+							<div data-team="5" class="select__team">
+								<img src="@img/teams/team-5.svg" alt="Image">
+							</div>
+							<div data-team="6" class="select__team">
+								<img src="@img/teams/team-6.svg" alt="Image">
+							</div>
+							<div data-team="7" class="select__team">
+								<img src="@img/teams/team-7.svg" alt="Image">
+							</div>
+							<div data-team="8" class="select__team">
+								<img src="@img/teams/team-8.svg" alt="Image">
+							</div>
+							<div data-team="9" class="select__team">
+								<img src="@img/teams/team-9.svg" alt="Image">
+							</div>
+							<div data-team="10" class="select__team">
+								<img src="@img/teams/team-10.svg" alt="Image">
+							</div>
+							<div data-team="11" class="select__team">
+								<img src="@img/teams/team-11.svg" alt="Image">
+							</div>
+							<div data-team="12" class="select__team">
+								<img src="@img/teams/team-12.svg" alt="Image">
+							</div>
+							<div data-team="13" class="select__team">
+								<img src="@img/teams/team-13.svg" alt="Image">
+							</div>
+							<div data-team="14" class="select__team">
+								<img src="@img/teams/team-14.svg" alt="Image">
+							</div>
+							<div data-team="15" class="select__team">
+								<img src="@img/teams/team-15.svg" alt="Image">
+							</div>
+							<div data-team="16" class="select__team">
+								<img src="@img/teams/team-16.svg" alt="Image">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrapper__game game">
+				<div class="game__body">
+					<div class="game__field">
+						<img src="@img/other/game-field.png" alt="Image">
+					</div>
+					<div class="game__header header-main">
+						<div class="header-main__body">
+							<button type="button" data-button="game-home" class="header-main__button-home"></button>
+							<div class="header-main__score-box score-box">
+								<div class="score-box__body">
+									<div class="score-box__icon icon-game icon-anim"></div>
+									<div class="score-box__score score">0</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="game__display-score display-score">
+						<div class="display-score__body">
+							<div data-score="1" class="display-score__score">0</div>
+							<span>:</span>
+							<div data-score="2" class="display-score__score">0</div>
+						</div>
+					</div>
+					<div class="game__gate game__gate_1"></div>
+					<div class="game__gate game__gate_2"></div>
+					<div class="game__player-team-box">
+						<div class="game__player game__player_1">
+							<p></p><span></span>
+						</div>
+						<div class="game__player game__player_2">
+							<p></p><span></span>
+						</div>
+						<div class="game__player game__player_3">
+							<p></p><span></span>
+						</div>
+					</div>
+					<div class="game__enemy-team-box">
+						<div class="game__enemy game__enemy_1">
+							<p></p><span></span>
+						</div>
+						<div class="game__enemy game__enemy_2">
+							<p></p><span></span>
+						</div>
+						<div class="game__enemy game__enemy_3">
+							<p></p><span></span>
+						</div>
+					</div>
+					<div class="game__ball">
+						<span></span>
+						<div class="game__ball-inner"></div>
+					</div>
+					<div class="game__footer footer">
+						<div class="footer__body">
+							<div class="footer__arrows">
+								<div data-controls="left" class="footer__btn footer__btn_left"></div>
+								<div class="footer__btn-center">
+									<div data-controls="up" class="footer__btn-center-up"></div>
+									<div data-controls="down" class="footer__btn-center-down"></div>
+								</div>
+								<div data-controls="right" class="footer__btn footer__btn_right"></div>
+							</div>
+							<div class="footer__timer-box timer">
+								<div class="timer__body">
+									<div class="timer__title">Time</div>
+									<div class="timer__timer">0:59</div>
+								</div>
+							</div>
+							<div class="footer__btn-foot"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrapper__slot slot">
+				<div class="slot__body">
+					<div class="slot__header header-main">
+						<div class="header-main__body">
+							<button type="button" data-button="slot-home" class="header-main__button-home"></button>
+							<div class="header-main__score-box score-box">
+								<div class="score-box__body">
+									<div class="score-box__icon icon-game icon-anim"></div>
+									<div class="score-box__score score">0</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slot__game">
+						<div class="slot__box">
+							<div class="slot__cont">
+								<div id="slot1" class="slot1">
+									<div id="reels1" class="reels1">
+										<div class="reel1"></div>
+										<div class="reel1"></div>
+										<div class="reel1"></div>
+										<div class="reel1"></div>
+										<div class="reel1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slot__controls controls-slot">
+						<div class="controls-slot__body">
+							<div class="controls-slot__bet-box bet-box">
+								<div class="bet-box__body">
+									<div class="bet-box__minus">-</div>
+									<div class="bet-box__info info">
+										<div class="bet-box__coin-bet-box">
+											<div class="bet-box__bet-inner">
+												<p>Bet</p>
+												<div class="bet-box__bet">0</div>
+											</div>
+										</div>
+									</div>
+									<div class="bet-box__plus">+</div>
+								</div>
+							</div>
+							<div class="controls-slot__button-box">
+								<button type="button" class="controls-slot__max">
+									<span>max bet</span>
+									<span class="bg-button _left"><span></span></span>
+									<span class="bg-button _center"><span></span></span>
+									<span class="bg-button _right"><span></span></span>
+								</button>
+								<button type="button" class="controls-slot__auto">
+									<span>auto</span>
+									<span class="bg-button _left"><span></span></span>
+									<span class="bg-button _center"><span></span></span>
+									<span class="bg-button _right"><span></span></span>
+								</button>
+								<button type="button" class="controls-slot__button-spin">
+									<span>spin</span>
+									<span class="bg-button _left"><span></span></span>
+									<span class="bg-button _center"><span></span></span>
+									<span class="bg-button _right"><span></span></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div data-screen="final" class="game__final final">
+				<div class="final__body">
+					<div class="final__title">Win</div>
+					<div class="final__stars">
+						<img src="@img/icons/star-compl.svg" alt="Img">
+						<img src="@img/icons/star-compl.svg" alt="Img">
+						<img src="@img/icons/star-compl.svg" alt="Img">
+					</div>
+					<div class="final__score-box">
+						<div class="final__money">
+							<div class="final__icon"></div>
+							<div class="final__score">+500</div>
+						</div>
+					</div>
+					<button type="button" class="final__button"><span>ok</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
